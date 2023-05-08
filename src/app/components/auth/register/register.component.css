@@ -1,0 +1,38 @@
+.information {
+    background-color: white; 
+    border: none;padding: 0px;
+    border-bottom: 1px solid black;
+    
+}
+
+.information:hover {
+    scale: 1;
+}
+
+dialog {
+    background-color: rgb(176, 176, 176);
+    color: black;
+    border-color: transparent;
+   
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    height: auto;
+    width: 30rem;
+ }
+
+ .close_button {
+    padding: .5rem 1.2rem;
+    border-radius: 5px;
+    background-color: #5D196A;
+    color: white;
+
+ }
+
+.x p {
+    text-align: left !important;
+ }
+ .register {
+    background-color: #5D196A;
+    color: white;
+ }

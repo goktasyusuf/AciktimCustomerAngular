@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="superNav border-bottom py-2 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
+        <select  class="me-3 border-0 bg-light">
+          <option value="en-us">TR</option>
+          <option value="en-us">EN</option>
+        </select>
+        <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3"><strong>info@aciktim.com</strong></span>
+        <span class="me-3"><i class="fa-solid fa-phone me-1" style="color: #5D196A;;"></i> <strong>0850 307 95 09</strong></span>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
+        <span class="me-3"><i class="fa-solid fa-truck text-muted me-1"></i><a class="text-muted" routerLink="orders"> Siparişlerim</a></span>
+        <span class="me-3"><i class="fa-solid fa-utensils text-muted me-1"></i><a class="text-muted" routerLink="favoriteRestaurants"> Favori Restoranlar</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="fa-solid fa-shop me-2"></i> <strong>ACIKTIM</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
+      <div class="input-group">
+        <span class="border-success input-group-text text-white" style="background-color: #5D196A;"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" class="form-control border-success" style="color:#7a7a7a">
+        <button class="btn text-white" style="background-color: #5D196A;">Ara</button>
+      </div>
+    </div>
+    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="ms-auto d-none d-lg-block">
+        <div class="input-group">
+          <span class="border-success input-group-text text-white" style="background-color: #5D196A;"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="text" class="form-control border-success" style="color:#7a7a7a">
+          <button style="background-color: #5D196A;" class="btn btn-success text-white">Ara</button>
+        </div>
+      </div>
+      <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase" href="#restoranlar">Restoranlar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase" routerLink="support">Destek Hattı</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto ">
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link mx-2 text-uppercase" routerLink="cart"><i class="fa-solid fa-cart-shopping me-1"></i> Sepetim</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link mx-2 text-uppercase" routerLink="account"><i class="fa-solid fa-circle-user me-1"></i> hesabım</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated()" style="cursor: pointer;">
+          <a class="nav-link mx-2 text-uppercase" (click)="logout()"><i class="fa-solid fa-right-to-bracket"></i> Çıkış yap</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link mx-2 text-uppercase" routerLink="auth/login"><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link mx-2 text-uppercase" routerLink="auth/register"><i class="fa-solid fa-circle-user me-1"></i>Kayıt Ol</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

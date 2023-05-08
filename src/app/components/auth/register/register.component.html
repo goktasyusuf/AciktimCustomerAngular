@@ -1,0 +1,142 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+              background: hsla(0, 0%, 100%, 0.55);
+              backdrop-filter: blur(30px);
+              ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Kayıt Ol</h2>
+            <form [formGroup]="registerForm">
+              <div class="row">
+                <div class="form-outline mb-4">
+                  <label class="labels" for="form3Example3">Email Adresi</label>
+                  <input type="email" id="form3Example3" formControlName="email" class="form-control" />
+                </div>
+
+                <div class="form-outline mb-4" style="display: none;">
+                  <input type="email" id="form3Example32" formControlName="registerDate" class="form-control" />
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="labels" for="form3Example1">İsim</label>
+                    <input type="text" id="form3Example1" formControlName="firstName" class="form-control" />
+
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="labels" for="form3Example2">Soyisim</label>
+                    <input type="text" id="form3Example2" formControlName="lastName" class="form-control" />
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-outline mb-4">
+                    <label class="labels" for="form3Example4">Şifre</label>
+                    <input type="password" id="form3Example5" formControlName="password" [(ngModel)]="password"
+                      class="form-control" />
+
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-outline mb-4">
+                    <label class="labels" for="form3Example4">Şifre Tekrarı</label>
+                    <input type="password" id="form3Example4" [(ngModel)]="verifyPassword" formControlName="password"
+                      class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" id="checkButton" (change)="toggleEditable()" />
+                <label class="form-check-label" for="form2Example33">
+                  Bilgilendirme <button class="information" (click)="dialog.showModal()">yazısını</button> okudum ve kabul ediyorum.
+                </label>
+              </div>
+              <dialog #dialog>
+                <div class="d-flex align-items-center justify-content-center x">
+                  <div>
+                    <h2>Hizmet Anlaşması</h2>
+                    <p>
+                      1 - Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                      in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    </p>
+                    <p>
+                      2 - Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+                      lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    </p>
+                    <p>
+                      3 - Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                      scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                      auctor fringilla.
+                    </p>
+                    <p>
+                      4 - Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                      in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    </p>
+                    <p>
+                      5 - Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+                      lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    </p>
+                    <p>
+                      6 - Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                      scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                      auctor fringilla.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <button class="close_button" (click)="dialog.close()">Tamam</button>
+                </div>
+              </dialog>
+              <button type="submit" (click)="register()" class="btn btn-block mb-4 register">
+                Kayıt ol
+              </button>
+              <div class="text-center">
+                <p>Ya da Şunlarla Kayıt Ol:</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://motokuryem.com.tr/wp-content/uploads/2021/07/Part-Time-Moto-Kurye-2021.png"
+          class="w-100 rounded-4 shadow-4" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

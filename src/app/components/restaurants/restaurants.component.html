@@ -1,0 +1,160 @@
+<div class="all" id="restoranlar" *ngIf="restaurants && favoriteRestaurants">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row x">
+        <h3 id="restaurants" style="font-weight: bold;">Restaurantlar</h3>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 " style="height: 22rem; margin-bottom: 4rem;"
+          *ngFor="let restaurant of restaurants">
+          <div class="card mb-4" style="width: 15rem;height: auto;">
+            <img [src]="getImagePath(restaurant)" style="height: 180px;object-fit: cover;" class="card-img-top"
+              alt="...">
+            <div class="card-body ">
+              
+              <button class=" like_button" (click)="addFavoriteRestaurant(restaurant)" *ngIf="ifIsitIn(restaurant)"
+                style="padding: 0px;border: none;background-color: transparent;">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <i class="fa-solid fa-heart liked" (click)="deleteFavoriteRestaurant(restaurant.id)" *ngIf="!ifIsitIn(restaurant)"></i>
+              <div class="header d-flex justify-content-between">
+                <div class="card-title restaurant_name" style="font-weight: bold;">
+                  <span style="font-size: 13px;">{{restaurant.restaurantName}}</span>
+                </div>
+                <div *ngIf="restaurant.restaurantRate!=0">
+                  <i class="fa fa-star rating-color" *ngFor="let x of createArray(restaurant.restaurantRate)"></i>
+                  <i class="fa-solid fa-star remainderRateColor" *ngFor="let x of createArray2(restaurant.restaurantRate)"></i> 
+                </div>
+                <div *ngIf="restaurant.restaurantRate==0" style="font-size: 8pt; font-weight: bold; color: #5D196A;">
+                    Puanlandırma Yapılmamıştır
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6" style="font-size: 13px;">{{restaurant.restaurantAddress}}</div>
+                <div class="col-lg-6">
+                  <span class="min" style="font-size: 13px;">
+                    Min Sepet Tutarı : {{restaurant.minCartPrice}}TL
+                  </span>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-6">
+                  <span>
+                    <i class="fa-solid fa-clock"></i> Açılış : {{restaurant.openingTime}}
+                  </span>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <span>
+                    <i class="fa-solid fa-clock"></i> Kapanış : {{restaurant.closingTime}}
+                  </span>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button routerLink="/restaurant/{{restaurant.id}}" class="btn"
+                    style="background-color: #5D196A;color: white;">Restoran Detayına Git</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="restaurants.length == 0">
+          Filtrenize uygun restoran bulunamadı ! 
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-3">
+      <h4 class="filterText mb-3 p-2" style="border-radius: 5px;">Filtreler</h4>
+      <div class="container filter">
+        <h4 style="margin-left: 1rem;font-weight: bold;">Sıralama</h4>
+        <ul class="filter_list">
+          <li>
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1" (click)="getAllRestaurants()">Varsayılan Sıralama</mat-radio-button>
+              <mat-radio-button value="1"  (click)="getAlphabetical()">Alfabetik Sıralama</mat-radio-button>
+              <mat-radio-button value="1" (click)="getByRestaurantRate()">Restoran Puanı</mat-radio-button>
+            </mat-radio-group>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="container filter">
+        <h4 style="margin-left: 1rem;font-weight: bold;">Kategoriler</h4>
+        <ul class="filter_list">
+          <div>
+          <li class="mb-2 p-1" *ngFor="let category of categories">
+            <input (change)="checkCheckBoxvalue($event)" value="{{category.id}}" type="checkbox"/>
+            {{category.categoryName}}
+          </li>
+          <button class="btn" (click)="getRestaurantsByCategoryId();" style="background-color: #5D196A;color: white;width: 7rem;">Listele</button>
+          </div>
+        </ul>
+        
+      </div>
+      <div class="container filter">
+        <h4 style="margin-left: 1rem;font-weight: bold;">Puan</h4>
+        <ul class="filter_list">
+          <li>
+            <mat-radio-button value="10" (click)="getByRate(10)">
+              Tümü
+            </mat-radio-button>
+          </li>
+          <li>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+              <mat-radio-button value="4" (click)="getByRate(4)">
+                <h5 class="review-stat">4 Ve Üstü</h5>
+              </mat-radio-button>
+              <div class="small-ratings">
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+              <mat-radio-button value="3" (click)="getByRate(3)">
+                <h5 class="review-stat">3 Ve Üstü</h5>
+              </mat-radio-button>
+              <div class="small-ratings">
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+              <mat-radio-button value="2" (click)="getByRate(2)">
+                <h5 class="review-stat">2 Ve Üstü</h5>
+              </mat-radio-button>
+              <div class="small-ratings">
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+              <mat-radio-button value="1" (click)="getByRate(1)">
+                <h5 class="review-stat">1 Ve Üstü</h5>
+              </mat-radio-button>
+              <div class="small-ratings">
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

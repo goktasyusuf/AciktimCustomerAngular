@@ -1,0 +1,337 @@
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+.card {
+    padding: 0;
+  
+  }
+  .arrow {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  .categories {
+    border-bottom: 1px solid gray;
+  }
+  
+  .card-wrapper img {
+    border-radius: 10px;
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    
+  }
+.see_all_a {
+    text-decoration: none;
+    color:#C9463D;
+}
+
+  .see_all {
+    font-size: .9rem;
+    margin-top: .2rem;
+    margin-right: .4rem;
+  }
+  .all_item {
+    position: relative;
+  }
+  .item {
+    width: 17rem;
+    height: 8rem;
+    
+  }
+
+  .like_button {
+    position: absolute;
+    bottom: 105px;
+    left: 245px;
+    font-size: 20px;
+    color: white;
+
+  }
+  .point {
+    position: absolute;
+    bottom: 5px;
+    left: 228px;
+    font-size: 20px;
+    background-color: white;
+    width:40px ;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+.category_name {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    width:40px ;
+    height: 20px;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.category_name span {
+    font-size: 13px;
+    color: #C9463D;
+}
+
+  .point i {
+    font-size: 13px;
+    color: #C9463D;
+  }
+   .point span {
+    font-size: 13px;
+    color: #C9463D;
+  }
+  .like_button:hover {
+    z-index: 999999;
+    transition: .4s;
+    color: #C9463D;
+
+  }
+
+  .restaurant_name {
+    color: #C9463D;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .card-wrapper a {
+    text-decoration: none;
+    color: black;
+  }
+
+  
+  .card-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  
+  
+  .card-wrapper .card-title {
+    color: #C9463D;
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 1400px) {
+    .item {
+      width: 15rem;
+    }
+    .point {  
+      bottom: 5px;
+      left: 195px;
+      font-size: 20px;
+      width:40px ;
+      height: 20px;
+    }
+    .restaurant_name {
+      font-size: 14px;
+    }
+    .like_button {
+      bottom: 105px;
+      left: 215px;
+      font-size: 20px;
+    }
+  
+  }
+  
+  @media (max-width: 1200px) {
+    .item {
+      width: 12rem;
+    }
+    .point {  
+      bottom: 5px;
+      left: 150px;  
+    }
+    .restaurant_name {
+      font-size: 14px;
+    }
+    .like_button {
+      bottom: 105px;
+      left: 170px;
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 992px) {
+      .item {
+        width: 11rem;
+      }
+      .point {  
+        bottom: 5px;
+        left: 132px;  
+      }
+      .restaurant_name {
+        font-size: 14px;
+      }
+      .like_button {
+        bottom: 105px;
+        left: 150px;
+        font-size: 20px;
+      }
+    }
+    @media (max-width:853px){
+      .restaurant_name {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width:800px){
+      .restaurant_name {
+        font-size: 12px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .item {
+        width: 10rem;
+        height: 7rem;
+      }
+      .card-wrapper img {
+        height: 7rem;
+      }
+
+      .point {  
+        bottom: 5px;
+        left: 115px;  
+      }
+      .restaurant_name {
+        font-size: 14px;
+      }
+      .like_button {
+        bottom: 88px;
+        left: 135px;
+        font-size: 20px;
+      }
+    }
+  
+    @media (max-width: 701px) {
+      .item {
+        width: 9rem;
+        height: 6rem;
+      }
+      .card-wrapper img {
+        height: 6rem;
+      }
+      .point {  
+        bottom: 5px;
+        left: 98px;  
+      }
+      .restaurant_name {
+        font-size: 14px;
+      }
+      .like_button {
+        bottom: 70px;
+        left: 120px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 645px) {
+      .item {
+        width: 8rem;
+        height: 5rem;
+      }
+      .card-wrapper img {
+        height: 5rem;
+      }
+      .point {  
+        bottom: 5px;
+        left: 88px; 
+        width: 35px;
+        height: 20px; 
+      }
+      .point span,i {  
+        font-size: 12px; 
+      }
+      .restaurant_name {
+        font-size: 14px;
+      }
+      .like_button {
+        bottom: 55px;
+        left: 105px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 587px) {
+      .item {
+        width: 8rem;
+        height: 5rem;
+      }
+      .card-wrapper img {
+        height: 5rem;
+      }
+    }
+
+    @media (max-width: 561px) {
+      .item {
+        width: 7rem;
+        height: 4rem;
+      }
+      .card-wrapper img {
+        height: 4rem;
+      }
+      .point {  
+        bottom: 5px;
+        left: 75px; 
+        width: 32px;
+        height: 20px; 
+      }
+      .point span,i {  
+        font-size: 12px; 
+      }
+      .restaurant_name {
+        font-size: 14px;
+      }
+      .like_button {
+        bottom: 42px;
+        left: 85px;
+        font-size: 20px;
+      }
+    }
+    @media (max-width: 520px) {
+      .item {
+        width: 7rem;
+        height: 4rem;
+      }
+      .card-wrapper img {
+        height: 4rem;
+      }
+    }
+  
+    @media (max-width: 477px) {
+      .item {
+        margin-right: .5rem;
+        width: 3rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .item {
+        width: 4rem;
+      }
+      .point {  
+        bottom: 5px;
+        left: 150px;
+        visibility: hidden;  
+      }
+      .restaurant_name {
+        font-size: 11px;
+      }
+      .like_button {
+        bottom: 105px;
+        left: 170px;
+        font-size: 20px;
+        visibility: hidden;
+      }
+      .category_name {
+        visibility: hidden;
+      }
+    }
+  
+  

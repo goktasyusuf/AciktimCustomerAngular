@@ -1,0 +1,131 @@
+.filterText {
+    font-weight: bold;
+}
+.filter_list {
+    list-style: none;
+    padding: 0px;
+    margin-left: 0px;
+}
+.filter_list li {
+    list-style: none;
+}
+.filter {
+    background-color:#ffffff;
+    padding: 2rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 0px solid gray;
+    border-left: 0px solid gray;
+    border-right: 0px solid gray;
+    border-radius: 10px;
+    box-shadow: rgba(93, 62, 188, 0.04) 0px 6px 24px;
+   
+}
+
+.review-stat{
+    font-weight:300;
+    font-size:15px;
+    margin-bottom:2px;
+}
+.liked {
+    color: red;
+    position: absolute;
+    top:10px;
+    left:210px;
+    font-size: 23px;
+    cursor: pointer;
+}
+.small-ratings i{
+    color:#cecece;   
+  }
+  .rating-color{
+    color:#5D196A !important;
+}
+
+.restaurant_name {
+    color:#C9463D ;
+}
+
+.card {
+    position: relative;
+}
+
+.remainderRateColor {
+    color: rgb(145, 142, 142);
+}
+.like_button {
+    position: absolute;
+    color: black; 
+    top:10px;
+    left:210px;
+    font-size: 23px;
+}
+.like_button:hover {
+    z-index: 999999;
+    transition: .4s;
+    color: #C9463D;
+
+  }
+  .card_href {
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (max-width: 1400px) {
+    .card {
+        width: 13.1rem !important;   
+    } 
+    .min{
+        font-size: 8pt !important;
+
+    }
+    .x {
+        margin-bottom: 20px;
+    }
+    .btn{
+        padding: 7px;
+    }
+    .like_button {
+        top: 4px;
+        left:177px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .card {
+        width: 20rem !important;
+    }
+    .x {
+        margin-bottom: 60px;
+    }
+    .like_button {
+        top: 4px;
+        left:290px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+        width: 16rem !important;
+    }
+    .x {
+        margin-bottom: 60px;
+    }
+    .like_button {
+        top: 4px;
+        left:225px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .card {
+        width: 30rem !important;
+        
+    }
+    .x {
+        margin-bottom: 60px;
+    }
+    .like_button {
+        top: 4px;
+        left:450px;
+    }
+  }

@@ -1,0 +1,307 @@
+.alindi {
+  border-top: 5px solid rgb(78, 0, 92);
+  width: 10%;
+}
+
+.alindi:after {
+  z-index: -1;
+  position: absolute;
+  bottom: -6px;
+  left:65px;
+  margin-left: -10px;
+  content:'';
+  width: 0;
+  height: 0;
+  border:8px solid transparent;
+  border-left: 10px solid rgb(78, 0, 92);
+
+}
+
+
+.hazirlaniyor{
+  border-top: 5px solid rgb(78, 0, 92);
+  width: 50%;
+}
+.hazirlaniyor:after {
+  z-index: -1;
+  position: absolute;
+  bottom: -6px;
+  left:65px;
+  margin-left: 220px;
+  content:'';
+  width: 0;
+  height: 0;
+  border:8px solid transparent;
+  border-left: 10px solid rgb(78, 0, 92);
+
+}
+.kuryede{
+  border-top: 5px solid rgb(78, 0, 92);
+  width: 90%;
+}
+
+.kuryede:after {
+  z-index: -1;
+  position: absolute;
+  bottom: -6px;
+  left:65px;
+  margin-left: 450px;
+  content:'';
+  width: 0;
+  height: 0;
+  border:8px solid transparent;
+  border-left: 10px solid rgb(78, 0, 92);
+
+}
+
+.tamamlandi {
+  border-top: 5px solid rgb(78, 0, 92);
+  width: 100%;
+}
+
+
+.card-stepper {
+  z-index: 0
+}
+
+#progressbar-2 {
+  color: #455A64;
+}
+
+#progressbar-2 li {
+  list-style-type: none;
+  font-size: 13px;
+  width: 50%;
+  position: relative;
+}
+
+/*#progressbar-2 #Alındı:before {
+  content: '\f058';
+  font-family: "Font Awesome 5 Free";
+  color: #fff;
+  width: 37px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#progressbar-2 #Hazırlanıyor:before {
+  content: '\f058';
+  font-family: "Font Awesome 5 Free";
+  color: #fff;
+  width: 37px;
+}
+
+#progressbar-2 #Kuryede:before {
+  content: '\f058';
+  font-family: "Font Awesome 5 Free";
+  color: #fff;
+  width: 37px;
+  margin-right: 0;
+  text-align: center;
+}
+
+#progressbar-2 #step4:before {
+  content: '\f111';
+  font-family: "Font Awesome 5 Free";
+  color: #fff;
+  width: 37px;
+  margin-right: 0;
+  text-align: center;
+}*/
+.activex {
+    box-shadow: 2px 2px 10px 0px #5D196A;
+}
+
+#progressbar-2 li:before {
+  line-height: 37px;
+  display: block;
+  font-size: 12px;
+  background: #c5cae9;
+  border-radius: 50%;
+}
+
+#progressbar-2 li:after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #c5cae9;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 15px;
+  z-index: -1;
+}
+
+
+
+#progressbar-2 li.active:before,
+#progressbar-2 li.active:after {
+  background: #6520ff;
+  width: 100%;
+}
+
+/* --------------- */
+
+body {
+  min-height: 100vh;
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
+  color: rgba(116, 116, 116, 0.667);
+  background: linear-gradient(140deg, #fff, 50%, #BA68C8);
+
+}
+.x {
+  flex-direction: column;
+}
+
+.container-fluid {
+  margin-top: 200px;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 7px;
+
+}
+
+.small {
+  letter-spacing: 0.5px !important;
+}
+
+.card-1 {
+  box-shadow: 2px 2px 10px 0px #5D196A;
+}
+
+hr {
+  background-color: rgba(248, 248, 248, 0.667);
+}
+
+
+.bold {
+  font-weight: 500;
+}
+
+.change-color {
+  color: #AB47BC !important;
+}
+
+.card-2 {
+  box-shadow: 1px 1px 3px 0px rgb(112, 115, 139);
+
+}
+
+.fa-circle.active {
+  font-size: 8px;
+  color: #AB47BC;
+}
+
+.fa-circle {
+  font-size: 8px;
+  color: #aaa;
+}
+
+.rounded {
+  border-radius: 2.25rem !important;
+}
+
+
+.progress-bar {
+  background-color: #AB47BC !important;
+}
+
+
+.progress {
+  height: 5px !important;
+  margin-bottom: 0;
+}
+
+.invoice {
+  position: relative;
+  top: -70px;
+}
+
+.Glasses {
+  position: relative;
+  top: -12px !important;
+}
+
+.card-footer {
+  background-color: #AB47BC;
+  color: #fff;
+}
+
+h2 {
+  color: rgb(78, 0, 92);
+  letter-spacing: 2px;
+}
+
+.again:hover {
+  background-color: rgba(101, 32,255,1) !important;
+  transition: .5s;
+  
+}
+
+.border-right {
+border-right: 2px solid #c3c4c5;
+}
+.display-3 {
+  font-weight: 500 !important;
+}
+
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color: #5D196A;
+  border-radius: 50%;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  
+}
+
+.size {
+  font-size: 12px;
+}
+
+.border_bottom_none {
+  border-bottom: none;
+}
+
+tr{
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 479px) {
+  .invoice {
+    position: relative;
+    top: 7px;
+  }
+
+  .border-line {
+    border-right: 0px solid rgb(226, 206, 226) !important;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  h2 {
+    color: rgb(78, 0, 92);
+    font-size: 17px;
+  }
+
+  .display-3 {
+    font-size: 28px;
+    font-weight: 500 !important;
+  }
+}
+
+.card-footer small {
+  letter-spacing: 7px !important;
+  font-size: 12px;
+}
+
+.border-line {
+  border-right: 1px solid rgb(226, 206, 226)
+}

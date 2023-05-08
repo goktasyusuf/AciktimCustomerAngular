@@ -1,0 +1,309 @@
+<section style="background-color: #eee;" *ngIf="customer">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a routerLink="/">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profilim</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img
+              src="https://static.vecteezy.com/ti/vecteur-libre/p1/7409979-people-icon-design-avatar-icon-person-icons-people-icons-are-set-in-tendance-flat-style-user-icon-set-vectoriel.jpg"
+              alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <h2 class="my-3">{{customer.firstName}} {{customer.lastName}}</h2>
+            <p class="text-muted mb-1">Kayıt Tarihi : {{customer.registerDate}}</p>
+            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-3">
+            <h3>Yeni Adres Ekle</h3>
+            <hr>
+            <form [formGroup]="addAddressForm">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-outline">
+                    <label class="labels" for="form6Example1">Şehir Adı</label>
+                    <input type="text" id="form6Example1" formControlName="city" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label class="labels" for="form6Example1">İlçe Adı</label>
+                  <input type="text" id="form6Example8" formControlName="county" class="form-control" />
+                </div>
+                <div class="col-lg-6" style="display: none;">
+                  <input type="text" id="form6Example9" formControlName="customerId" class="form-control" />
+                </div>
+              </div>
+              <div class="row mt-1">
+                <div class="col-lg-6">
+                  <div class="form-outline">
+                    <label class="labels" for="form6Example1">Mahalle Adı</label>
+                    <input type="text" id="form6Example10" formControlName="neighbourHood" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label class="labels" for="form6Example1">Sokak Adı</label>
+                  <input type="text" id="form6Example11" formControlName="street" class="form-control" />
+                </div>
+              </div>
+              <div class="row mt-1">
+                <div class="col-lg-6">
+                  <div class="form-outline">
+                    <label class="labels" for="form6Example1">Apartman Numarası</label>
+                    <input type="text" id="form6Example12" formControlName="apartmentNumber" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label class="labels" for="form6Example1">Kapı Numarası</label>
+                  <input type="text" id="form6Example13" formControlName="doorNumber" class="form-control" />
+                </div>
+              </div>
+              <div class="form-outline mb-4">
+                <label class="labels" for="form6Example14">Adres Açıklaması</label>
+                <textarea class="form-control" formControlName="address" id="form6Example7" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-block mb-4" (click)="addAddress()"
+                style="background-color: rgb(99, 39, 120);color: white;">Adresi Kaydet</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3>Bilgilerini Güncelle</h3>
+            <hr>
+            <div class="row">
+              <div class="col-lg-6">
+                <label class="labels">Ad</label><input type="text" class="form-control" disabled value="{{firstName}}"
+                  value="">
+              </div>
+              <div class="col-lg-6">
+                <label class="labels">Soyad</label><input type="text" class="form-control" disabled value="{{lastName}}"
+                  value="">
+              </div>
+            </div>
+            <div class="row mt-1">
+              <div class="col-lg-12">
+                <label class="labels">Email Adresi</label><input disabled value="{{mailAddress}}" type="text"
+                  class="form-control" placeholder="Email adresi">
+              </div>
+            </div>
+            <form [formGroup]="updateForm" class="mt-1">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="labels" for="form3Example1">Tc Kimlik No</label>
+                    <input type="text" id="form3Example1" formControlName="nationalityId" placeholder="örn:11111111111"
+                      class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="labels" for="form3Example2">Doğum Tarihi</label>
+                    <input type="text" id="form3Example7" placeholder="örn:08.06.2020" formControlName="birthDay"
+                      class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4" style="display: none;">
+                  <div class="form-outline">
+                    <label class="labels" for="form3Example2">Doğum Tarihi</label>
+                    <input type="text" id="form3Example2" placeholder="örn:08.06.2020" formControlName="registerDate"
+                      class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-outline mb-4">
+                <label class="labels" for="form3Example3">Telefon Numarası</label>
+                <input type="text" id="form3Example3" placeholder="örn:+905437725182" formControlName="phoneNumber"
+                  class="form-control" value="{{phoneNumber}}" />
+              </div>
+              <div class="mt-1 text-center"><button class="btn btn-primary profile-button" (click)="updateUser()"
+                  type="button">Profili
+                  Güncelle</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <h3 style="font-weight:bold;">Şifreni Değiştir</h3>
+                <hr>
+                <form [formGroup]="changePasswordForm">
+                  <div class="col-md-12">
+                    <label class="labels">Eski Şifre</label>
+                    <input formControlName="oldPassword" type="password" class="form-control" placeholder="Eski Şifre">
+                  </div>
+                  <br>
+                  <div class="col-md-12">
+                    <label class="labels">Yeni Şifre</label>
+                    <input type="password" formControlName="newPassword" class="form-control" placeholder="Yeni Şifre"
+                      value="" [(ngModel)]="password">
+                  </div>
+                  <br>
+                  <div class="col-md-12">
+                    <label class="labels">Şifre Tekrarı</label>
+                    <input type="password" [(ngModel)]="verifyPassword" formControlName="newPassword"
+                      class="form-control" placeholder="Yeni Şifre Tekrarı">
+                  </div>
+                  <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                      (click)="changePassword()" type="button">Şifreyi
+                      Değiştir</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h3>Aktif Adreslerim</h3>
+                  </div>
+                  <div class="col-lg-6">
+                    <span style="font-size: 9px;color: red;">
+                      * Adresinizin üstüne tıklayarak daha fazla bilgi görebilirsiniz.
+                    </span>
+                  </div>
+                </div>
+                <hr>
+                <div class="alert alert-danger" role="alert" *ngIf="customerAddresses && customerAddresses.length == 0">
+                  Herhangi bir adresiniz bulunmamaktadır.
+                </div>
+                <div *ngIf="customerAddresses">
+                <div *ngFor="let address of customerAddresses">
+                  <div class="alert alert-info mb-3" style="cursor: pointer;" role="alert" (click)="dialog.showModal()">
+                    {{address.address}}
+                  </div>
+                  <dialog #dialog>
+                    <div>
+                      <h2>Adres Detayı</h2>
+                      <hr>
+                      <table class="table table-responsive">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Şehir</th>
+                            <th scope="col">İlçe</th>
+                            <th scope="col">Mahalle</th>
+                            <th scope="col">Sokak</th>
+                            <th scope="col">Kapı No</th>
+                            <th scope="col">Apartman No</th>
+                            <th scope="col">Düzenle</th>
+                            <th scope="col">Sil</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>#</td>
+                            <td>{{address.city}}</td>
+                            <td>{{address.county}}</td>
+                            <td>{{address.neighbourHood}}</td>
+                            <td>{{address.street}}</td>
+                            <td>{{address.doorNumber}}</td>
+                            <td>{{address.apartmentNumber}}</td>
+                            <td>
+                              <button (click)="openEditArea()" style="background-color: white;border: none;">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            <td>
+                              <button (click)="deleteAddress(address.id)" style="background-color: white;border: none;">
+                                <i class="fa-solid fa-trash"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- q-QEWEQWEQWEWQEWQQEWQWEQEWQEWEQWEQWQEWQEQEW-->
+                      <div *ngIf="showEdit">
+                      <h2 class="mt-4">Adresi Düzenle</h2>
+                      <hr>
+                      <form [formGroup]="updateAddressForm">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="form-outline">
+                              <label class="labels" for="form6Example145">Şehir Adı</label>
+                              <input type="text" formControlName="city" 
+                                class="form-control" />
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <label class="labels" for="form6Example197">İlçe Adı</label>
+                            <input type="text"   formControlName="county" 
+                              class="form-control" />
+                          </div>
+                          <div class="col-lg-6" style="display: none;">
+                            <input type="text" formControlName="customerId" 
+                              class="form-control" />
+                          </div>
+                        </div>
+                        <div class="row mt-1">
+                          <div class="col-lg-6">
+                            <div class="form-outline">
+                              <label class="labels" for="form6Example178">Mahalle Adı</label>
+                              <input type="text"  formControlName="neighbourHood"
+                                 class="form-control" />
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <label class="labels" for="form6Example167">Sokak Adı</label>
+                            <input type="text"  formControlName="street" 
+                              class="form-control" />
+                          </div>
+                        </div>
+                        <div class="row mt-1">
+                          <div class="col-lg-6">
+                            <div class="form-outline">
+                              <label class="labels" for="form6Example165">Apartman Numarası</label>
+                              <input type="text"  formControlName="apartmentNumber"
+                                 class="form-control" />
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <label class="labels" for="form6Example100">Kapı Numarası</label>
+                            <input type="text" formControlName="doorNumber"
+                               class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-outline mb-4">
+                          <label class="labels" for="form6Example141">Adres Açıklaması</label>
+                          <textarea class="form-control" formControlName="address"
+                             rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block mb-4" (click)="updateAddress(address.id)"
+                          style="background-color: rgb(99, 39, 120);color: white;">Adresi Kaydet</button>
+                      </form>
+                      <!-- q-QEWEQWEQWEWQEWQQEWQWEQEWQEWEQWEQWQEWQEQEW-->
+                    </div>
+                    </div>
+
+                    <div>
+                      <div class="d-flex" style="justify-content: center;">
+                        <button class="close_button" (click)="dialog.close()">Kapat</button>
+                      </div>
+                    </div>
+                  </dialog>
+                </div>
+              </div>
+                <div class="card-footer">
+                  Toplam Kayıtlı Adres Sayınız : {{customerAddresses.length}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

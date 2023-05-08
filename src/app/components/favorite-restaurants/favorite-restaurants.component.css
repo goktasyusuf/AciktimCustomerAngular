@@ -1,0 +1,49 @@
+.card {
+    position: relative;
+}
+.delete {
+    position: absolute;
+    left: 385px;
+    top: 10px;
+    font-size: 25px;
+    color: black;
+}
+.delete:hover {
+    color: red;
+    transition: .4s;
+}
+
+@media (max-width: 1400px) {
+    .delete {
+        left: 325px;
+        top: 10px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .delete {
+        left: 265px;
+        top: 10px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .delete {
+        right: -380px;
+        top: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .delete {
+        right: -200px;
+        top: 10px;
+    }
+  }
+
+  @media (max-width: 526px) {
+    .delete {
+        right: -150px;
+        top: 10px;
+    }
+  }

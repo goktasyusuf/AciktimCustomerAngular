@@ -1,0 +1,125 @@
+<div class="container">
+    <section class="h-100 gradient-custom">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+              <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h4 class="mb-0">Sepetim</h4>
+                </div>
+                <div class="card-body" *ngIf="itemsInCart.length>0">
+                  <!-- Single item -->
+                  <div class="row mb-4" *ngFor="let item of itemsInCart">
+                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                      <!-- Image -->
+                      <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                        <img [src]="item.menuImage"
+                          class="w-100" alt="Blue Jeans Jacket" />
+                        <a href="#!">
+                          <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                        </a>
+                      </div>
+                      <!-- Image -->
+                    </div>
+                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                      <!-- Data -->
+                      <p><strong>Menü İsmi : {{item.menuTitle}}</strong></p>
+                      <p>Restoran Adı : {{item.restaurantName}}</p>
+                      <p>Menü Fiyatı :{{item.menuPrice}} TL </p>
+                      <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                        title="Remove item">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                      <button (click)="calculatePrice(item)" type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                        title="Move to the wish list">
+                        <i class="fas fa-heart"></i>
+                      </button>
+                      <!-- Data -->   
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                      <!-- Quantity -->
+                      <div class="d-flex mb-4" style="max-width: 300px">
+                        <button class="btn btn-primary px-3 me-2" style="height: 2.5rem;background-color: #5D196A;color: white;"
+                         (click)="decrease(item)" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                          <i class="fas fa-minus"></i>
+                        </button>
+      
+                        <div class="form-outline">
+                          <input id="form1" min="0" name="quantity"  value="{{item.quantity}}" type="number" class="form-control" />
+                          <label class="form-label" for="form1">Adet</label>
+                        </div>
+      
+                        <button class="btn btn-primary px-3 ms-2"  style="height: 2.5rem;background-color: #5D196A;color: white;"
+                         (click)="increase(item)" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                      <!-- Quantity -->
+      
+                      <!-- Price -->
+                      <p class="text-start text-md-center">
+                        <strong *ngIf="calculatePrice(item)">{{calculatePrice(item)}}TL </strong>
+                      </p>
+                      <!-- Price -->
+                    </div>
+                  </div>
+                  <hr>
+                  
+                 <div class="form-group">
+                    <h3 style="font-weight: bold;">Sipariş Notunuz(Boş Bırakılabilir)</h3>
+                    <textarea class="form-control" [(ngModel)]="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div> 
+                    
+
+                </div>
+                <div style="padding: 1rem;">
+                <div class="alert" style="background-color: #5D196A; color: white;" *ngIf="itemsInCart.length==0" role="alert">
+                  Sepetinizde Ürün Bulunmamaktadır!
+                </div>
+              </div>
+              </div>
+              
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h3 style="font-weight: bold;">Kayıtlı Adreslerim</h3>
+                  <select class="form-select"  [(ngModel)]="selectedOption" aria-label="Default select example">
+                    <option  *ngFor="let adres of customerAddress" [value]="adres.address">{{adres.address}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card mb-4 mt-4">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">Özet</h5>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                      Ürünler
+                      <span>{{calculateTotal()}} TL</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                      Gönderim Ücreti
+                      <span>0 TL</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                      <div>
+                        <strong>Toplam Ücret</strong>
+                      </div>
+                      <span><strong>{{calculateTotal()}} TL</strong></span>
+                    </li>
+                  </ul>
+      
+                  <button type="button" (click)="createOrder()" class="btn btn-lg btn-block" style="background-color: #5D196A;color: white;">
+                    Sipariş Ver
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>

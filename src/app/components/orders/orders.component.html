@@ -1,0 +1,172 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="container" *ngIf="competedOrders">
+  <div class="row mt-3">
+    <div class="col-lg-6 border-right" *ngIf="activeOrders">
+      <h4 style="font-weight: bold; color: red;">Aktif Siparişlerim</h4>
+      <div *ngIf="activeOrders?.length == 0" class="alert alert-danger col-lg-12" role="alert">
+        Aktif siparişiniz bulunmamaktadır!
+      </div>
+      <hr>
+      <div *ngIf="activeOrders">
+        <section class="mb-5" *ngFor="let order of activeOrders">
+          <div class="container h-100">
+            <div class="row d-flex justify-content-center  h-100">
+              <div class="col-12">
+                <div class="card card-stepper text-black activex" style="border-radius: 16px;">
+                  <div class="card-body ">
+                    <div class="col">
+                      <div class="">
+                        <div class="card-body">
+                          <div class="media">
+                            <div class="d-flex justify-content-between">
+                              <div class="sq align-self-center ">
+                                <p style="font-weight: bold;">Restoran : {{order.restaurantName}}</p>
+                                <p style="font-weight: bold;">Sipariş No : {{order.id}}</p>
+                                <p style="font-weight: bold;">Siarpiş Tarihi : {{order.orderDate}}</p>
+                              </div>
+                              <div style="width: 200px;margin-top: auto;margin-bottom: auto;">
+                                <span style="font-weight: bold;">Teslim Edilen Adres: </span>
+                                {{order.address}}
+                              </div>
+                            </div>
+                            <br>
+                            <h3 style="font-weight: bold;">Sipariş İçeriği</h3>
+                          </div>
+                          <hr class="my-3">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Menü Resmi</th>
+                                <th scope="col">Menü İsmi</th>
+                                <th scope="col">Menü Fiyatı</th>
+                                <th scope="col">Adet</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let menu of order.menus">
+                                <th>
+                                  <img [src]="menu.menuImage" alt="" width="70" height="70">
+                                </th>
+                                <td>{{menu.menuName}}</td>
+                                <td>{{menu.orderPrice}}</td>
+                                <td>{{menu.quantity}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="mb-3 d-flex" style="flex-direction: row-reverse;font-weight: bold;"> Sipariş Açıklaması :
+                            {{order.orderDescription}}</div>
+                        </div>
+                      </div>
+                      <h2 style="letter-spacing: 0px;">Sipariş Takip</h2>
+                    </div>
+                    <div style="position: relative;">
+                      <div [class]="getClass(order)" class="hero" >
+                      </div>
+                      </div>
+                    <br>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-lg-flex align-items-center">
+                        <i class="fas fa-clipboard-list fa-2x me-lg-3 mb-3 mb-lg-0"></i>
+                        <div>
+                          <p class="fw-bold mb-1">Sipariş</p>
+                          <p class="fw-bold mb-0">Alındı</p>
+                        </div>
+                      </div>
+                      <div class="d-lg-flex align-items-center">
+                        <i class="fas fa-box-open fa-2x me-lg-3 mb-3 mb-lg-0"></i>
+                        <div>
+                          <p class="fw-bold mb-1">Sipariş</p>
+                          <p class="fw-bold mb-0">Hazırlanıyor</p>
+                        </div>
+                      </div>
+                      <div class="d-lg-flex align-items-center">
+                        <i class="fas fa-shipping-fast fa-2x me-lg-3 mb-3 mb-lg-0"></i>
+                        <div>
+                          <p class="fw-bold mb-1">Kurye</p>
+                          <p class="fw-bold mb-0">Yola Çıktı</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- --------------------- -->
+    <div class="col-lg-6">
+      <div class="col-auto">
+        <h4 class="color-1 mb-0" style="font-weight: bold;color: #5D196A;">Geçmiş Siparişlerim</h4>
+      </div>
+      <hr>
+      <label class="mb-2" for="exampleFormControlInput1" style="font-weight: bold;">Restoran Adına Göre Eski Sipariş
+        Ara</label>
+      <input type="email" [(ngModel)]="filter" class="form-control mb-3" id="exampleFormControlInput1"
+        placeholder="Restoran Adı">
+        <div class="alert alert-danger" role="alert" *ngIf="competedOrders.length == 0">
+          Geçmiş siparişiniz bulunmamaktadır. Sipariş vermek için <a href="http://localhost:4200/#restoranlar"><u style="cursor: pointer;">tıklayın</u></a>
+        </div>
+      <div class="container-fluid d-flex justify-content-center" style="margin-top: 0px;"  *ngFor="let order of competedOrders |restaurantPipe:filter" class="mb-4">
+        <div class=" card-1">
+          <div class="card-body">
+            <div class="row">
+              <div>
+              <div class="col">
+                <div class="card border_bottom_none">
+                  <div class="card-body">
+                    <div class="media">
+                      <div class="d-flex justify-content-between">
+                        <div class="sq align-self-center ">
+                          <p style="font-weight: bold;">Restoran : {{order.restaurantName}}</p>
+                          <p style="font-weight: bold;">Sipariş No : {{order.id}}</p>
+                          <p style="font-weight: bold;">Sipariş Tarihi: {{order.orderDate}}</p>
+                        </div>
+                        <div>
+                          <span style="font-weight: bold;">Teslim Edilen Adres: </span>
+                          {{order.address}}
+                        </div>
+                      </div>
+                      <br>
+                      <h3 style="font-weight: bold;">Sipariş İçeriği</h3>
+                    </div>
+                    <hr class="my-3 ">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Menü Resmi</th>
+                      <th scope="col">Menü İsmi</th>
+                      <th scope="col">Menü Fiyatı</th>
+                      <th scope="col">Adet</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let menu of order.menus">
+                      <th>
+                        <img [src]="menu.menuImage" alt="" width="70" height="70">
+                      </th>
+                      <td>{{menu.menuName}}</td>
+                      <td>{{menu.orderPrice}}</td>
+                      <td>{{menu.quantity}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="mb-3 d-flex" style="flex-direction: row-reverse; margin-right: 2rem;"> Sipariş Açıklaması :
+                  {{order.orderDescription}}</div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
